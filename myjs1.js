@@ -71,7 +71,7 @@ addActionButton.addEventListener("click",function(){
     var totalNumberActionsNotdonePercent=document.querySelector(".total-number-actions-notdone-percent");
     totalNumberActionsNotdonePercent.innerHTML=totalNumberActionsNotdoneValue.innerHTML/(totalNumberActionsValue.innerHTML/100);
     totalNumberActionsNotdonePercent.innerHTML=Math.round(+totalNumberActionsNotdonePercent.innerHTML)+"%";
-    totalNumberActionsNotdoneProgressIn.style.width=parseFloat(totalNumberActionsNotdonePercent.innerHTML)+" %";
+    totalNumberActionsNotdoneProgressIn.style.width=parseFloat(totalNumberActionsNotdonePercent.innerHTML)+"%";
     /* оновлення даних в блоці статистики для виконаних подій*/
     var totalNumberActionsComplitedValue=document.querySelector(".total-number-actions-complited-value");
       /* звернення до .total-number-actions-complited-percent*/
