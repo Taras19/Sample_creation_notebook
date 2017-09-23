@@ -11,6 +11,8 @@ var idCompletedAction=0;
 var addActionButton=document.querySelector(".add-action-button");
 var inputTime=document.querySelector("input[type='time']");
     inputTime.value="00:00";
+
+    /* створення події для кнопки додавання події*/
 addActionButton.addEventListener("click",function(){
   var addActionInput=document.querySelector(".add-action-input");
   if(addActionInput.value.length>0){
@@ -504,3 +506,47 @@ var containerActionTitleAll=document.querySelectorAll(".container-action-title")
       }
       });
     }
+
+/* створення події для кнопки очиситка*/
+
+var cleanButton = document.querySelector(".clean-action-button");
+cleanButton.addEventListener("click",function(){
+  /* очищаю масиви в яких зберігається інформація */
+  ListScheduledAction.length = 0; //список запланованих подій
+  ListDataScheduledAction.length = 0;//список дат запланованих подій
+  ListComplitedAction.length = 0; //список виконаних подій
+  ListDataComplitedAction.length = 0;//список дат виконаних подій
+  ListDeleteAction.length = 0; //список видалених подій
+  ListDataDeleteAction.length = 0;//список дат видалених подій
+  localStorage.clear();
+  /* очистка всіх number-action-value і в статистіці також */
+  var numberActionValue = document.querySelectorAll(".number-action-value");
+  for (var i = 0; i < numberActionValue.length; i++){
+    numberActionValue[i].innerHTML = 0;
+  }
+  /* очистка запланованих подій (варто зробити функцію код повторюється */
+  var listActions = document.querySelectorAll(".list-actions-scheduled .list-action");
+  for(i = 0; i < listActions.length;i++){
+    listActions[i].remove();
+  }
+  document.querySelector(".list-actions-scheduled").classList.add("visible-after-js");
+  /* очистка виконаних подій (варто зробити функцію код повторюється) */
+  listActions = document.querySelectorAll(".list-actions-completed  .list-action");
+  for(i = 0; i < listActions.length;i++){
+    listActions[i].remove();
+  }
+  document.querySelector(".list-actions-completed ").classList.add("visible-after-js");
+  /* очистка видалених подій (варто зробити функцію код повторюється) */
+  listActions = document.querySelectorAll(".list-actions-delete  .list-action");
+  for(i = 0; i < listActions.length;i++){
+    listActions[i].remove();
+  }
+  document.querySelector(".list-actions-delete ").classList.add("visible-after-js");
+  /* очистка повзунків */
+  var totalNumberActionsProgress = document.querySelectorAll(".total-number-actions-progress");
+  for(i = 0; i < totalNumberActionsProgress.length; i++){
+    totalNumberActionsProgress[i].children[0].style.width = 0 + "%";
+    totalNumberActionsProgress[i].children[0].children[0].innerHTML = "0%";
+  }
+
+});

@@ -129,7 +129,8 @@ body{
   flex:1 1 500px;
   
 }
-.add-action-button{
+.add-action-button,
+.clean-action-button{
   padding:10px;
   border-radius:10px;
   background-color:rgba(20, 197, 26, 0.5);
@@ -138,6 +139,9 @@ body{
   box-shadow:1px 1px 5px black;
   margin:10px;
   cursor:pointer;
+}
+.clean-action-button{
+  background-color:rgba(20, 197, 26, 0.5);
 }
 .add-action-button:hover{
    background-color:rgba(20, 197, 26, .7);
