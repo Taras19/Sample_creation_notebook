@@ -567,13 +567,16 @@ window.addEventListener("pageshow",function(){
   var listActionAll = document.querySelectorAll(".list-actions-scheduled .list-action");
     for (i = 0; i < listActionAll.length; i++){
       if(timeAction == listActionAll[i].getAttribute('data-time')){
-        console.log("work");
-        document.querySelector(".modal").classList.add("visible-js");
-        var modalContent = document.querySelector(".modal-content");
-        modalContent.appendChild(listActionAll[i].cloneNode(true));
+        //console.log("work");
         var audio = document.querySelector("audio");
         audio.play();
         audio.volume = 1.0;
+        document.querySelector(".modal").classList.add("visible-js");
+        var modalContent = document.querySelector(".modal-content");
+        modalContent.appendChild(listActionAll[i].cloneNode(true));
+        //var audio = document.querySelector("audio");
+        //audio.play();
+        //audio.volume = 1.0;
       }
     }
 
