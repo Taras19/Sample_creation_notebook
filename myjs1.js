@@ -571,7 +571,9 @@ window.addEventListener("pageshow",function(){
         document.querySelector(".modal").classList.add("visible-js");
         var modalContent = document.querySelector(".modal-content");
         modalContent.appendChild(listActionAll[i].cloneNode(true));
-        document.querySelector("audio").play();
+        var audio = document.querySelector("audio");
+        audio.play();
+        audio.volume = 1.0;
       }
     }
 
@@ -584,6 +586,7 @@ closeModal.addEventListener("click", function(){
   document.querySelector(".modal").classList.remove("visible-js");
   var modalContent = document.querySelector(".modal-content");
   modalContent.removeChild(modalContent.lastElementChild);
-  document.querySelector("audio").pause();
-  document.querySelector("audio").currentTime = 0;
+  var audio = document.querySelector("audio");
+  audio.pause();
+  audio.currentTime = 0;
 });
