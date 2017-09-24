@@ -550,3 +550,37 @@ cleanButton.addEventListener("click",function(){
   }
 
 });
+
+/* відслідковування початку події*/
+window.addEventListener("pageshow",function(){
+  //var time = new Date();
+  //var timeAction = time.getHours() * 60;
+  //timeAction+=time.getMinutes();
+//console.log(timeAction);
+//var 
+  //var listActionAll = document.querySelectorAll(".list-actions-scheduled .list-action");
+  //console.log(listActionAll.length);
+  var timer = setInterval(function(){
+    var time = new Date();
+  var timeAction = time.getHours() * 60;
+  timeAction+=time.getMinutes();
+  var listActionAll = document.querySelectorAll(".list-actions-scheduled .list-action");
+    for (i = 0; i < listActionAll.length; i++){
+      if(timeAction == listActionAll[i].getAttribute('data-time')){
+        console.log("work");
+        document.querySelector(".modal").classList.add("visible-js");
+        var modalContent = document.querySelector(".modal-content");
+        modalContent.appendChild(listActionAll[i].cloneNode(true));
+      }
+    }
+
+  },60000);
+});
+
+/* створення події для закривання модального вікна*/
+var closeModal = document.querySelector(".close-icon");
+closeModal.addEventListener("click", function(){
+  document.querySelector(".modal").classList.remove("visible-js");
+  var modalContent = document.querySelector(".modal-content");
+  modalContent.removeChild(modalContent.lastElementChild);
+});
