@@ -567,16 +567,14 @@ window.addEventListener("pageshow",function(){
   var listActionAll = document.querySelectorAll(".list-actions-scheduled .list-action");
     for (i = 0; i < listActionAll.length; i++){
       if(timeAction == listActionAll[i].getAttribute('data-time')){
-        //console.log("work");
-        var audio = document.querySelector("audio");
-        audio.play();
-        audio.volume = 1.0;
+        console.log("work");
         document.querySelector(".modal").classList.add("visible-js");
         var modalContent = document.querySelector(".modal-content");
         modalContent.appendChild(listActionAll[i].cloneNode(true));
         //var audio = document.querySelector("audio");
-        //audio.play();
-        //audio.volume = 1.0;
+        
+        document.querySelector("audio").play();
+        document.querySelector("audio").volume = 1.0;
       }
     }
 
@@ -589,7 +587,7 @@ closeModal.addEventListener("click", function(){
   document.querySelector(".modal").classList.remove("visible-js");
   var modalContent = document.querySelector(".modal-content");
   modalContent.removeChild(modalContent.lastElementChild);
-  var audio = document.querySelector("audio");
-  audio.pause();
-  audio.currentTime = 0;
+  //var audio = document.querySelector("audio");
+  document.querySelector("audio").pause();
+  document.querySelector("audio") = 0;
 });
