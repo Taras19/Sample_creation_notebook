@@ -571,6 +571,7 @@ window.addEventListener("pageshow",function(){
         document.querySelector(".modal").classList.add("visible-js");
         var modalContent = document.querySelector(".modal-content");
         modalContent.appendChild(listActionAll[i].cloneNode(true));
+        document.querySelector("audio").play();
       }
     }
 
@@ -583,4 +584,6 @@ closeModal.addEventListener("click", function(){
   document.querySelector(".modal").classList.remove("visible-js");
   var modalContent = document.querySelector(".modal-content");
   modalContent.removeChild(modalContent.lastElementChild);
+  document.querySelector("audio").pause();
+  document.querySelector("audio").currentTime = 0;
 });
