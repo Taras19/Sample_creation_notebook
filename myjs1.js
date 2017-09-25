@@ -589,5 +589,5 @@ closeModal.addEventListener("click", function(){
   modalContent.removeChild(modalContent.lastElementChild);
   //var audio = document.querySelector("audio");
   document.querySelector("audio").pause();
-  document.querySelector("audio") = 0;
+  document.querySelector("audio").currentTime = 0;
 });
