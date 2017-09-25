@@ -552,7 +552,7 @@ cleanButton.addEventListener("click",function(){
 });
 
 /* відслідковування початку події*/
-window.addEventListener("pageshow",function(){
+window.addEventListener("load",function(){
   //var time = new Date();
   //var timeAction = time.getHours() * 60;
   //timeAction+=time.getMinutes();
