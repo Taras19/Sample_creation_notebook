@@ -591,3 +591,14 @@ closeModal.addEventListener("click", function(){
   document.querySelector("audio").pause();
   document.querySelector("audio").currentTime = 0;
 });
+
+/*Play*/
+var play = document.querySelector(".play");
+play.addEventListener("click",function(){
+    document.querySelector("audio").play();
+});
+/*Pause*/
+var pause = document.querySelector(".pause");
+play.addEventListener("click",function(){
+    document.querySelector("audio").pause();
+});
