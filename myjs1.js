@@ -572,9 +572,12 @@ window.addEventListener("load",function(){
         var modalContent = document.querySelector(".modal-content");
         modalContent.appendChild(listActionAll[i].cloneNode(true));
         //var audio = document.querySelector("audio");
-        
-        document.querySelector("audio").play();
-        document.querySelector("audio").volume = 1.0;
+        /**/
+        var event = new Event("click");
+        document.querySelector(".play").dispatchEvent(event);
+        /**/
+        //document.querySelector("audio").play();
+        //document.querySelector("audio").volume = 1.0;
       }
     }
 
