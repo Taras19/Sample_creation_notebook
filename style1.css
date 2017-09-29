@@ -268,14 +268,27 @@ body{
   left:0;
   bottom:0;
   right:0;
-  background-color:transparent;//#333
+  background-color:#333;
 }
 .modal.visible-js{
   display:flex;
 }
-.close-icon{
-  display:flex;
+.modal-greeting{
   //display:none;
+  display:flex;
+  position:fixed;
+  justify-content:center;
+  align-items:center;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background-color:#333;
+}
+
+.close-icon,
+.modal-greeting__closed{
+  display:flex;
   justify-content:center;
   align-items:center;
   position:absolute;
@@ -290,7 +303,8 @@ body{
   cursor:pointer;
   transition:.5s;
 }
-.close-icon:hover{
+.close-icon:hover,
+.modal-greeting__closed:hover{
   border-radius:50%;
   font-size:25px;
   font-weight:bold;
@@ -309,6 +323,10 @@ body{
 }
 .modal-content-title{
   text-align:center;
+}
+.modal-greeting__title{
+   text-align:center;
+   padding:15px;
 }
 /*
 .modal-content .list-action{

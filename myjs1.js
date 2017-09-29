@@ -1,3 +1,4 @@
+
 // Write JavaScript here 
 
 var ListScheduledAction=[]; //список запланованих подій
@@ -11,6 +12,13 @@ var idCompletedAction=0;
 var addActionButton=document.querySelector(".add-action-button");
 var inputTime=document.querySelector("input[type='time']");
     inputTime.value="00:00";
+    /*оголошення події для закривання мод. вікна-вітання та активування audio*/
+var modalGreetingClosed = document.querySelector(".modal-greeting__closed");
+modalGreetingClosed.addEventListener("click",function(){
+  document.querySelector("audio").play();
+  document.querySelector("audio").pause();
+  document.querySelector(".modal-greeting").style.display="none";
+});
 
     /* створення події для кнопки додавання події*/
 addActionButton.addEventListener("click",function(){
@@ -552,7 +560,7 @@ cleanButton.addEventListener("click",function(){
 });
 
 /* відслідковування початку події*/
-window.addEventListener("load",function(){
+window.addEventListener("pageshow",function(){
   //var time = new Date();
   //var timeAction = time.getHours() * 60;
   //timeAction+=time.getMinutes();
@@ -567,17 +575,14 @@ window.addEventListener("load",function(){
   var listActionAll = document.querySelectorAll(".list-actions-scheduled .list-action");
     for (i = 0; i < listActionAll.length; i++){
       if(timeAction == listActionAll[i].getAttribute('data-time')){
-        console.log("work");
+        //console.log("work");
         document.querySelector(".modal").classList.add("visible-js");
         var modalContent = document.querySelector(".modal-content");
         modalContent.appendChild(listActionAll[i].cloneNode(true));
         //var audio = document.querySelector("audio");
-        /**/
-        var event = new Event("click");
-        document.querySelector(".play").dispatchEvent(event);
-        /**/
-        //document.querySelector("audio").play();
-        //document.querySelector("audio").volume = 1.0;
+        
+        document.querySelector("audio").play();
+        document.querySelector("audio").volume = 1.0;
       }
     }
 
@@ -593,17 +598,4 @@ closeModal.addEventListener("click", function(){
   //var audio = document.querySelector("audio");
   document.querySelector("audio").pause();
   document.querySelector("audio").currentTime = 0;
-});
-
-/*Play*/
-var play = document.querySelector(".play");
-play.addEventListener("click",function(){
-    document.querySelector("audio").play();
-    console.log( document.querySelector("audio"));
-});
-/*Pause*/
-var pause = document.querySelector(".pause");
-pause.addEventListener("click",function(){
-    document.querySelector("audio").pause();
-    console.log( document.querySelector("audio"));
 });
