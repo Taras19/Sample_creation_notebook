@@ -31,6 +31,40 @@ body{
   transition:.5s;
   margin:10px;
 }
+/*
+.list-actions-scheduled.open::before{
+  content:"Закрити";
+  display:flex;
+  position:fixed;
+  right:-50px;
+  bottom:-50px;
+  border:1px solid rgba(128,128,128,.3);
+  border-radius:50%;
+  height:100px;
+  width:100px;
+  background-color:rgba(128,128,128,.3);
+  //justify-content:center;
+  align-items:center;
+  transform:rotate(45deg);
+  padding:10px;
+}
+*/
+.closed-open-list{
+  display:none;
+  position:fixed;
+  right:-50px;
+  bottom:-50px;
+  border:1px solid rgba(128,128,128,.3);
+  border-radius:50%;
+  height:100px;
+  width:100px;
+  background-color:rgba(128,128,128,.3);
+  //justify-content:center;
+  align-items:center;
+  transform:rotate(45deg);
+  padding:10px;
+}
+
 .list-actions:after{
   content:"Список порожній";
   display:none;
@@ -327,6 +361,7 @@ body{
 .modal-greeting__title{
    text-align:center;
    padding:15px;
+   color:white;
 }
 /*
 .modal-content .list-action{

@@ -20,6 +20,8 @@ modalGreetingClosed.addEventListener("click",function(){
   document.querySelector(".modal-greeting").style.display="none";
 });
 
+
+
     /* створення події для кнопки додавання події*/
 addActionButton.addEventListener("click",function(){
   var addActionInput=document.querySelector(".add-action-input");
@@ -502,18 +504,46 @@ var containerActionTitleAll=document.querySelectorAll(".container-action-title")
     for(var k=0;k<containerActionTitleAll.length;k++){
     containerActionTitleAll[k].addEventListener("click",function(){
       //var listActions=document.querySelector(".list-actions");
-      this.nextElementSibling.classList.toggle("open");
-      //alert(this.nextElementSibling.children.length);
+      
+      if(document.querySelectorAll(".list-actions.open").length==0){
+        this.nextElementSibling.classList.add("open");
+      }
+      else if(this.nextElementSibling.classList.contains("open") && document.querySelectorAll(".list-actions.open").length!==0){
+        document.querySelector(".list-actions.open").classList.remove("open");
+        document.querySelector(".closed-open-list").style.display="none";
+      }
+      else{
+        document.querySelector(".list-actions.open").classList.remove("open");
+        document.querySelector(".closed-open-list").style.display="none";
+        this.nextElementSibling.classList.add("open");
+      }
+      
+           
+      /* при відкриванні пустого списку додавання пункту "події відсутні" */
       if(this.nextElementSibling.children.length==0){
-        //alert(this.nextElementSibling.children.length);
         this.nextElementSibling.classList.add("visible-after-js");
         //console.log(this.nextElementSibling.children);
       }
       else{
         this.nextElementSibling.classList.remove("visible-after-js");
       }
+      /* керування видимістю кнопки закривання списку подій експеримент */
+      if(this.nextElementSibling.clientHeight >= document.documentElement.clientHeight){
+        console.log(this.nextElementSibling.clientHeight);
+        document.querySelector(".closed-open-list").style.display="flex";
+      }
+      else{
+        document.querySelector(".closed-open-list").style.display="none";
+      }
       });
     }
+
+  /* створення події для кнопки закривання відкритого списку для мобільних*/
+var closedOpenList = document.querySelector(".closed-open-list");
+closedOpenList.addEventListener("click",function(){
+  document.querySelector(".list-actions.open").classList.remove("open");
+  closedOpenList.style.display="none";
+});
 
 /* створення події для кнопки очиситка*/
 
@@ -599,3 +629,5 @@ closeModal.addEventListener("click", function(){
   document.querySelector("audio").pause();
   document.querySelector("audio").currentTime = 0;
 });
+
+/* створення події для закривання відкритого списку*/
