@@ -52,8 +52,8 @@ body{
 .closed-open-list{
   display:none;
   position:fixed;
-  right:-50px;
-  bottom:-50px;
+  right:-45px;
+  bottom:-45px;
   border:1px solid rgba(128,128,128,.3);
   border-radius:50%;
   height:100px;
